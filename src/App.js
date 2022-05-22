@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import '@devexpress/dx-react-grid-bootstrap4/dist/dx-react-grid-bootstrap4.css';
+import { Grid, Table, TableHeaderRow } from '@devexpress/dx-react-grid-bootstrap4';
+import Sorting from './components/Sorting';
+
+const columns = [
+  { name: 'id', title: 'ID' },
+  { name: 'product', title: 'Product' },
+  { name: 'owner', title: 'Owner' },
+];
+const rows = [
+  { id: 0, product: 'DevExtreme', owner: 'DevExpress' },
+  { id: 1, product: 'DevExtreme Reactive', owner: 'DevExpress' },
+  { id: 2, product: 'DevExtreme Reactive 111', owner: 'DevExpress' },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <div className="card">
+        <Grid
+          rows={rows}
+          columns={columns}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Table />
+          <TableHeaderRow />
+        </Grid>
+      </div>
+      <Sorting />
+    </>
   );
 }
 
